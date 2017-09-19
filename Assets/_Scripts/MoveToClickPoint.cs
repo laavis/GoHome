@@ -4,52 +4,26 @@ using UnityEngine;
 
 public class MoveToClickPoint : MonoBehaviour {
 
-		//flag to check if player has clicked
-		//set to true on click and back to false when player reaches its destination
-		private bool _flag = false;
+	private float speed = 5f;
+	private Vector2 target;
 
-		//destination point
-		private Vector2 _endPoint;
+	void Start(){
+		target = transform.position;
+	}
 
-		//player speed
-		public float speed = 50.0f;
-		
-		//horizontal position of the player
-		private float xAxis;
+	void FixedUpdate(){
+		if(Input.GetMouseButtonDown(0) || Input.touchCount > 0 &&Input.GetTouch(0).phase == TouchPhase.Began) {
 
-		void Start(){
-			//save starting position to xAxis
-			xAxis = gameObject.transform.position.x;
+			#if UNITY_EDITOR
+			target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+			#elif (UNITY_ANDROID || UNITY_IPHONE || UNITY_WP8)
+			target = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+			#endif
+
+			target.y = transform.position.y;
 		}
-
-		void Update(){
-
-			//check if screen is clicked
-			if(Input.GetMouseButtonDown(0)){
-				Debug.Log("mouse button pressed");
-				//declara a variable of RaycastHit struct
-				RaycastHit hit;
-				Debug.Log("raycast : hit");
-				//create a ray on the clicked position
-				Ray ray;
-				ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-				Debug.Log("camera position");
-
-				if(Physics.Raycast(ray, out hit)) {
-					_flag = true;
-					_endPoint = hit.point;
-					
-					_endPoint.x = xAxis;
-					Debug.Log(_endPoint);
-				}
-			}
-			if(_flag && !Mathf.Approximately(gameObject.transform.position.magnitude, _endPoint.magnitude)){
-				gameObject.transform.position = Vector2.Lerp(gameObject.transform.position, _endPoint, 1/(speed * (Vector2.Distance(gameObject.transform.position, _endPoint))));
-			
-			}else if(_flag && Mathf.Approximately(gameObject.transform.position.magnitude, _endPoint.magnitude)) {
-   					_flag = false;
-   					Debug.Log("I am here");
- 		}
+		transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
 	}
 }
     
