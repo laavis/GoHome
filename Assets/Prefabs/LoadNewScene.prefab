@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4774857069170388}
   - component: {fileID: 61553632154603118}
-  - component: {fileID: 114435592650946126}
   - component: {fileID: 212751173241520616}
+  - component: {fileID: 114521993786573366}
   m_Layer: 0
   m_Name: LoadNewScene
   m_TagString: Untagged
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114435592650946126
+--- !u!114 &114521993786573366
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -75,9 +75,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1975106233210170}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 4f22fdf20af5d1a418429cde3a6c8b52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  guiObject: {fileID: 1975106233210170}
+  LoadLevel: Test2
 --- !u!212 &212751173241520616
 SpriteRenderer:
   m_ObjectHideFlags: 1
