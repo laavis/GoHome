@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 2121242}
   - component: {fileID: 2121241}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TextMoveToScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -661,7 +661,7 @@ GameObject:
   - component: {fileID: 1981173734}
   - component: {fileID: 1981173733}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: TextScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -794,7 +794,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2090012013}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f22fdf20af5d1a418429cde3a6c8b52, type: 3}
+  m_Script: {fileID: 11500000, guid: 9db14175afb9f784795687a51d580376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   guiObject: {fileID: 2121240}
