@@ -591,8 +591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db14175afb9f784795687a51d580376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guiObjectFor: {fileID: 691271926}
-  guiObjectBack: {fileID: 101849701}
+  guiObject: {fileID: 101849701}
 --- !u!212 &1088458763
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -838,8 +837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db14175afb9f784795687a51d580376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guiObjectFor: {fileID: 691271926}
-  guiObjectBack: {fileID: 101849701}
+  guiObject: {fileID: 691271926}
 --- !u!61 &1221843948
 BoxCollider2D:
   m_ObjectHideFlags: 0
