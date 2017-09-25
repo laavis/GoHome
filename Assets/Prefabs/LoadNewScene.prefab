@@ -75,11 +75,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1975106233210170}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f22fdf20af5d1a418429cde3a6c8b52, type: 3}
+  m_Script: {fileID: 11500000, guid: 9db14175afb9f784795687a51d580376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guiObject: {fileID: 1975106233210170}
-  LoadLevel: Test2
+  guiObjectFor: {fileID: 0}
+  guiObjectBack: {fileID: 0}
 --- !u!212 &212751173241520616
 SpriteRenderer:
   m_ObjectHideFlags: 1
