@@ -10,6 +10,6 @@ public class TextFollow : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector2 textBoxPos = Camera.main.WorldToScreenPoint(this.transform.position);
-		textBox.transform.position = textBoxPos;
+		if (textBox != null) textBox.transform.position = textBoxPos;
 	}
 }

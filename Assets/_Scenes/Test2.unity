@@ -593,6 +593,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7df6bac9bbe7e1541981f58b78480813, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &744527402 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1208443499418284, guid: 7df6bac9bbe7e1541981f58b78480813,
+    type: 2}
+  m_PrefabInternal: {fileID: 744527401}
 --- !u!1 &1087012403
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,6 +698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guiObject: {fileID: 101849701}
+  Player: {fileID: 0}
 --- !u!212 &1088458763
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -753,7 +759,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -939,6 +945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guiObject: {fileID: 691271926}
+  Player: {fileID: 0}
 --- !u!61 &1221843948
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -956,7 +963,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1571,6 +1578,11 @@ Prefab:
       propertyPath: inventoryGameObject
       value: 
       objectReference: {fileID: 1773186890}
+    - target: {fileID: 114944669743786220, guid: 87909797545e8de49be1c49ab93e6987,
+        type: 2}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 744527402}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87909797545e8de49be1c49ab93e6987, type: 2}
   m_IsPrefabParent: 0

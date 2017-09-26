@@ -10,11 +10,13 @@ public class Inventory : MonoBehaviour {
 	public static Inventory instance;
 
 	void Awake(){
-		if(instance != null){
+		if(instance == null){
+			instance = this;
+
+		} else if(instance != this){
 			Debug.Log("More than one insance of Inventory found!");
-			return;
+			
 		}
-		instance = this;
 	}
 	//--------------------------------------------------------------
 
@@ -26,9 +28,9 @@ public class Inventory : MonoBehaviour {
 	public List<Item> inventoryItems = new List<Item> ();
 	
 	void Start(){
-		//inventoryGameObject.SetActive(false);
+		inventoryItems = Data.instance.inventoryData;
 	}
-
+	
 	public void Add(Item item){
 		inventoryItems.Add(item);
 		
