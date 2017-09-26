@@ -14,6 +14,7 @@ public class Inventory : MonoBehaviour {
 			Debug.Log("More than one insance of Inventory found!");
 			return;
 		}
+		DontDestroyOnLoad(gameObject);
 		instance = this;
 	}
 	//--------------------------------------------------------------
@@ -27,10 +28,7 @@ public class Inventory : MonoBehaviour {
 
 	private bool gameStart = true;
 	
-	void Start(){
-		//inventoryGameObject.SetActive(false);
-	}
-
+	
 	void LateUpdate(){
 		if(gameStart && inventoryGameObject.activeSelf == true){
 			inventoryGameObject.SetActive(false);
