@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class MoveToClickPoint : MonoBehaviour {
-
+	
 	private float speed = 5f;
 	private Vector2 target;
 
@@ -13,10 +13,11 @@ public class MoveToClickPoint : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		if(EventSystem.current.IsPointerOverGameObject())
-			return;
+		if (!GameManager.isPaused) Move();
+	}
 
-		if(Input.GetMouseButtonDown(0) || Input.touchCount > 0 &&Input.GetTouch(0).phase == TouchPhase.Began) {
+	void Move(){
+			if(Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)) {
 
 			#if UNITY_EDITOR
 			target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -28,6 +29,8 @@ public class MoveToClickPoint : MonoBehaviour {
 			target.y = transform.position.y;
 		}
 		transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
+		
 	}
 }
+
     

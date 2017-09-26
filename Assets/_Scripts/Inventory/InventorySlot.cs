@@ -10,7 +10,7 @@ public class InventorySlot : MonoBehaviour {
 
 	Item item;
 
-	void Start(){
+	void Awake (){
 		img = gameObject.GetComponent<Image>();
 		btn = gameObject.GetComponent<Button>();
 	}

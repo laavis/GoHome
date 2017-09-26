@@ -24,18 +24,9 @@ public class Inventory : MonoBehaviour {
 	public GameObject inventoryGameObject;
 	public int space = 12;
 	public List<Item> inventoryItems = new List<Item> ();
-
-	private bool gameStart = true;
 	
 	void Start(){
 		//inventoryGameObject.SetActive(false);
-	}
-
-	void LateUpdate(){
-		if(gameStart && inventoryGameObject.activeSelf == true){
-			inventoryGameObject.SetActive(false);
-			gameStart = false;
-		}
 	}
 
 	public void Add(Item item){
