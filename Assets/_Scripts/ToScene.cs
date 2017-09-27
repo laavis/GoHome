@@ -30,12 +30,12 @@ public class ToScene : MonoBehaviour {
 	void Update(){
 		if(Input.GetMouseButtonDown(0) && guiObject.activeInHierarchy == true && transform.position.x > 5 /*insideTrigger*/){
 			//Debug.Log("Load next scene");
-			Data.instance.SaveData();
+			//Data.instance.SaveData();
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 		}
 		if(Input.GetMouseButtonDown(0) && guiObject.activeInHierarchy == true && transform.position.x < 5 /*insideTrigger*/){
 			//Debug.Log("Load next scene");
-			Data.instance.SaveData();
+			//Data.instance.SaveData();
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
 			gameObject.tag = "Player";
 			transform.position = new Vector2 (4.0f, -1.85f);

@@ -1,12 +1,10 @@
 fileFormatVersion: 2
-guid: 7bbc4f801dcb6f3439ef8ebbb7cd7fc3
-timeCreated: 1506441185
+guid: 2338b78feaa193647b6f2578ac57536a
+timeCreated: 1506536242
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences:
-  - inventoryGameObject: {fileID: 1011638404532058, guid: 7df6bac9bbe7e1541981f58b78480813,
-      type: 2}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
