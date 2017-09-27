@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class MoveToClickPoint : MonoBehaviour {
 	
-	private float speed = 5f;
+	private float speed = 10f;
 	private Vector2 target;
 
 	void Start(){
