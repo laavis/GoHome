@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour {
 	public float maxSpeed = 10f;
 
 	bool facingRight = true;
-	bool moving = false;
 	Animator anim;
 	Rigidbody2D rb2d;
 	private static bool playerExists;
@@ -29,12 +28,6 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
 		
 		float move = Input.GetAxis("Horizontal");
-
-		// if(Mathf.Abs(move) > 0)
-		// 	moving = true;
-		// else if(Mathf.Abs(move) <= 0)
-		// 	moving = false;
-
 		anim.SetFloat("Speed", Mathf.Abs(move));
 		rb2d.velocity = new Vector2(move * maxSpeed, rb2d.velocity.y);
 

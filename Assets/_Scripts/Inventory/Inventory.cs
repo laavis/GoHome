@@ -29,6 +29,7 @@ public class Inventory : MonoBehaviour {
 	
 	void Start(){
 		inventoryItems = Data.instance.inventoryData;
+		inventoryGameObject.SetActive(false);
 	}
 	
 	public void Add(Item item){

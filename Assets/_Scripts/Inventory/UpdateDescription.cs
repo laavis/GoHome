@@ -5,19 +5,16 @@ using UnityEngine.UI;
 
 public class UpdateDescription : MonoBehaviour {
 
-	private Text description;
+	Text[] textFields;
 
-	// Use this for initialization
 	void Start () {
-		description = gameObject.GetComponent<Text>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		textFields = gameObject.GetComponentsInChildren<Text>();
 	}
 
 	public void UpdateDescriptionText(int index){
-		description.text = Inventory.instance.inventoryItems[index].description;
+		if(index < Inventory.instance.inventoryItems.Count){
+			textFields[0].text = Inventory.instance.inventoryItems[index].name;
+			textFields[1].text = Inventory.instance.inventoryItems[index].description;
+		}
 	}
 }
