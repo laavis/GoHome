@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class ToScene : MonoBehaviour {
 	public GameObject guiObject;
 	public GameObject Player;
+	public string exitPoint;
+	private PlayerController thePlayer;
 	//public float pX;
 	//public float pY;
 	//public GameObject guiObjectBack;
@@ -13,6 +15,7 @@ public class ToScene : MonoBehaviour {
 	//private bool insideTrigger = false;
 	// Use this for initialization
 	void Start () {
+		thePlayer = FindObjectOfType<PlayerController> ();
 		guiObject.SetActive (false);
 		/*if (PlayerPrefs.GetInt ("Saved") == 1) {
 			PlayerPrefs.GetFloat ("p_x");
@@ -37,8 +40,6 @@ public class ToScene : MonoBehaviour {
 			//Debug.Log("Load next scene");
 			//Data.instance.SaveData();
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-			gameObject.tag = "Player";
-			transform.position = new Vector2 (4.0f, -1.85f);
 
 		}
 	}
@@ -46,6 +47,7 @@ public class ToScene : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D other){
 		if (other.gameObject.tag == "Player") {
 			guiObject.SetActive (true);
+			thePlayer.startPoint = exitPoint;
 			/*if (transform.position.x < 5) {
 				other.transform.position = new Vector2 (4.0f, -1.85f);
 			}*/

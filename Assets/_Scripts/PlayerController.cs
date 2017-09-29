@@ -8,9 +8,11 @@ public class PlayerController : MonoBehaviour {
 
 	bool facingRight = true;
 	bool moving = false;
+	public Vector2 lastMove;
 	Animator anim;
 	Rigidbody2D rb2d;
 	private static bool playerExists;
+	public string startPoint;
 
 	// Use this for initialization
 	void Start () {
