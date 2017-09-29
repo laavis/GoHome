@@ -9,10 +9,10 @@ public class PlayerStartPoint : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		thePlayer = FindObjectOfType<PlayerController> ();
-		if (thePlayer.startPoint == pointName) {
+		/*if (thePlayer.startPoint == pointName) {
 			thePlayer.transform.position = transform.position;
 			thePlayer.lastMove = startDirection;
-		}
+		}*/
 		
 	}
 	

@@ -47,7 +47,7 @@ public class ToScene : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D other){
 		if (other.gameObject.tag == "Player") {
 			guiObject.SetActive (true);
-			thePlayer.startPoint = exitPoint;
+			//thePlayer.startPoint = exitPoint;
 			/*if (transform.position.x < 5) {
 				other.transform.position = new Vector2 (4.0f, -1.85f);
 			}*/
