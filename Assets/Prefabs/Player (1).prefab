@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 50461134808976514}
   - component: {fileID: 70754412523423060}
   - component: {fileID: 95451286698634348}
-  - component: {fileID: 114093353146416598}
+  - component: {fileID: 114255674272802844}
   m_Layer: 0
   m_Name: Player (1)
   m_TagString: Player
@@ -82,7 +82,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1929179369898778}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 0}
---- !u!114 &114093353146416598
+--- !u!114 &114255674272802844
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -147,10 +147,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1929179369898778}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d55e88a15c8d21d41b1d563800db02a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 3959dded444ef8c4983249e9cf3076b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
+  player: {fileID: 4279014453908840}
 --- !u!212 &212290858916263742
 SpriteRenderer:
   m_ObjectHideFlags: 1
