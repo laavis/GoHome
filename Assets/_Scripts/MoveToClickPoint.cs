@@ -26,19 +26,23 @@ public class MoveToClickPoint : MonoBehaviour {
 		}
 	}
 
+	void Update(){
+		//If target position the left side of the player, flip the player so it will be facing towards left
+		if (!GameManager.isPaused && Mathf.Abs(target.x - player.position.x) > 0.05f) {
+			if(target.x < player.position.x){
+				playerSpriteRend.flipX = true;	
+			
+			} else {
+				playerSpriteRend.flipX = false;	
+			} 
+		}
+	}
+
 	void FixedUpdate(){
 		//Don't move if inventory or text box is active
 		if (!GameManager.isPaused){
 			Move();
-		} 
-
-		//If target position the left side of the player, flip the player so it will be facing towards left
-		if(target.x < player.position.x){
-			playerSpriteRend.flipX = true;	
-		
-		}else if(target.x > player.position.x){
-			playerSpriteRend.flipX = false;	
-		}
+		}  
 
 		//Play walk animation until the player is reached the target position
 		if(isMoving == true && !GameManager.isPaused){
