@@ -6,12 +6,12 @@ public class ItemPickup : MonoBehaviour {
 
 	public Item item;
 
-	void Start(){
+	void FixedUpdate(){
+		// If an item is collected, destroy gameObject (item)
 		if(Inventory.instance.inventoryItems.Contains(item)){
 			Destroy(gameObject);
-		}
+		}	
 	}
-
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.tag == "Player"){
 			Debug.Log("Collided with " + other.tag);
@@ -21,5 +21,4 @@ public class ItemPickup : MonoBehaviour {
 			Destroy(gameObject);
 		}
 	}
-
 }

@@ -1328,9 +1328,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bce3aa366f0aff43a57c1f8bf3079f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guiObject: {fileID: 295906444}
+  direction: 0
   Player: {fileID: 0}
   exitPoint: 
+  guiObject: {fileID: 0}
 --- !u!61 &494465281
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3326,6 +3327,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1513658125 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1188157697954644, guid: f1dcd924494c3054eb20a76cb2a134af,
+    type: 2}
+  m_PrefabInternal: {fileID: 1388849490}
 --- !u!1 &1518121005
 GameObject:
   m_ObjectHideFlags: 0
@@ -3715,6 +3721,8 @@ MonoBehaviour:
   textBox: {fileID: 1772117525}
   isInventoryOpen: 0
   isTextBoxOpen: 0
+  loadNextSceneText: {fileID: 295906444}
+  loadPreviousSceneText: {fileID: 1513658125}
 --- !u!4 &1693137244
 Transform:
   m_ObjectHideFlags: 0

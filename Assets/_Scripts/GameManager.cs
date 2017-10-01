@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour {
 	public bool isInventoryOpen = false;
 	public bool isTextBoxOpen = false;
 
+	public GameObject loadNextSceneText;
+	public GameObject loadPreviousSceneText;
+
 	void Awake () {
 		// GameManager is Singleton (i.e. only one GameManager instance at any given time)
 		if(instance != null){

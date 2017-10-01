@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum Direction {
+	forwards, backwards
+}
+
 public class ToScene : MonoBehaviour {
-	public GameObject guiObject;
+	public Direction direction;
 	public GameObject Player;
 	public string exitPoint;
 	private MoveToClickPoint thePlayer;
+	public GameObject guiObject;
 	//public float pX;
 	//public float pY;
 	//public GameObject guiObjectBack;
@@ -16,7 +21,8 @@ public class ToScene : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		thePlayer = FindObjectOfType<MoveToClickPoint> ();
-		//guiObject.SetActive (false);
+		guiObject = (direction == Direction.forwards) ? GameManager.instance.loadNextSceneText : GameManager.instance.loadPreviousSceneText;
+		guiObject.SetActive (false);
 		/*if (PlayerPrefs.GetInt ("Saved") == 1) {
 			PlayerPrefs.GetFloat ("p_x");
 			PlayerPrefs.GetFloat ("p_y");

@@ -141,9 +141,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bce3aa366f0aff43a57c1f8bf3079f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guiObject: {fileID: 0}
+  direction: 0
   Player: {fileID: 0}
   exitPoint: 
+  guiObject: {fileID: 0}
 --- !u!61 &494465281
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -414,9 +415,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bce3aa366f0aff43a57c1f8bf3079f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guiObject: {fileID: 0}
+  direction: 1
   Player: {fileID: 0}
   exitPoint: 
+  guiObject: {fileID: 0}
 --- !u!61 &1326632248
 BoxCollider2D:
   m_ObjectHideFlags: 0
