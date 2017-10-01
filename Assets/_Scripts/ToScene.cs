@@ -7,7 +7,7 @@ public class ToScene : MonoBehaviour {
 	public GameObject guiObject;
 	public GameObject Player;
 	public string exitPoint;
-	private PlayerController thePlayer;
+	private MoveToClickPoint thePlayer;
 	//public float pX;
 	//public float pY;
 	//public GameObject guiObjectBack;
@@ -15,8 +15,8 @@ public class ToScene : MonoBehaviour {
 	//private bool insideTrigger = false;
 	// Use this for initialization
 	void Start () {
-		thePlayer = FindObjectOfType<PlayerController> ();
-		guiObject.SetActive (false);
+		thePlayer = FindObjectOfType<MoveToClickPoint> ();
+		//guiObject.SetActive (false);
 		/*if (PlayerPrefs.GetInt ("Saved") == 1) {
 			PlayerPrefs.GetFloat ("p_x");
 			PlayerPrefs.GetFloat ("p_y");

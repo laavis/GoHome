@@ -42,8 +42,12 @@ public class MoveToClickPoint : MonoBehaviour {
 		//Don't move if inventory or text box is active
 		if (!GameManager.isPaused){
 			Move();
+		// If (in this case) inventory is opened, set the players destination target to it's current position
+		// In other words, stop moving 
+		}else if(isMoving == true && GameManager.isPaused){
+			isMoving = false;
+			target = player.transform.position;
 		}  
-
 		//Play walk animation until the player is reached the target position
 		if(isMoving == true && !GameManager.isPaused){
 			anim.Play("Walk");

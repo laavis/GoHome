@@ -12,6 +12,10 @@ public class Inventory : MonoBehaviour {
 	void Awake(){
 		if(instance == null){
 			instance = this;
+			// This is already handled in the GameManager.cs
+			// Canvas which contains the Inventory is a child of the GameManager, 
+			// so DontDestroyOnLoad doesn't need to be called in this script.
+			//GameObject.DontDestroyOnLoad(this.gameObject);
 
 		} else if(instance != this){
 			Debug.Log("More than one insance of Inventory found!");
