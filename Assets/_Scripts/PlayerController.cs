@@ -1,46 +1,92 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour {
-
-	public float maxSpeed = 10f;
-
-	bool facingRight = true;
 	Animator anim;
-	Rigidbody2D rb2d;
-	private static bool playerExists;
+	private SpriteRenderer playerSpriteRend;
 
-	// Use this for initialization
-	void Start () {
+	public Transform player;
+	private static bool playerExists;
+	private float speed = 10f;
+	private Vector2 target;
+	public bool isMoving = false;
+
+	public LayerMask itemLayer;
+
+
+	void Start(){
+		target = transform.position;
 		anim = GetComponent<Animator>();
-		rb2d = GetComponent<Rigidbody2D>();
+		playerSpriteRend = GetComponent<SpriteRenderer>();
+
 		if (!playerExists) {
 			playerExists = true;
 			DontDestroyOnLoad (transform.gameObject);
 		} else {
 			Destroy (gameObject);
 		}
-
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+
+	void Update(){
+		//If target position the left side of the player, flip the player so it will be facing towards left
+		if (!GameManager.isPaused && Mathf.Abs(target.x - player.position.x) > 0.05f) {
+			if(target.x < player.position.x){
+				playerSpriteRend.flipX = true;	
+			
+			} else {
+				playerSpriteRend.flipX = false;	
+			} 
+		}
+
+		Collider2D coll = Physics2D.OverlapCircle(player.transform.position, 1f, itemLayer);
+		Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		if ((Input.GetMouseButtonDown(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) 
+			&& coll != null && Vector2.Distance(mouse, player.transform.position) < 1f) {
+			coll.GetComponent<ItemPickup>().CollectItem();
+		}
+	}
+
+	void FixedUpdate(){
+		//Don't move if inventory or text box is active
+		if (!GameManager.isPaused){
+			Move();
+		// If (in this case) inventory is opened, set the players destination target to it's current position
+		// In other words, stop moving 
+		}else if(isMoving == true && GameManager.isPaused){
+			isMoving = false;
+			target = player.transform.position;
+		}  
+		//Play walk animation until the player is reached the target position
+		if(isMoving == true && !GameManager.isPaused){
+			anim.Play("Walk");
+		}else{
+			anim.Play("Idle");
+		}
+	}
+
+	void Move(){
+			if(Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)) {
+			
+			isMoving = true;
 		
-		float move = Input.GetAxis("Horizontal");
-		anim.SetFloat("Speed", Mathf.Abs(move));
-		rb2d.velocity = new Vector2(move * maxSpeed, rb2d.velocity.y);
+			#if UNITY_EDITOR
+			target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-		if(move > 0 && !facingRight)
-			Flip();
-		else if(move < 0 && facingRight)
-			Flip();
-	}
+			#elif (UNITY_ANDROID || UNITY_IPHONE || UNITY_WP8)
+			target = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+			#endif
 
-	void Flip(){
-		facingRight = !facingRight;
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
+			target.y = transform.position.y;
+			
+			//If the player has reached the target position, stop moving. 
+			}else if(target.x == player.position.x){
+				isMoving = false;
+			}
+			//Move the player to the target position
+			transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
 	}
 }
+
+    

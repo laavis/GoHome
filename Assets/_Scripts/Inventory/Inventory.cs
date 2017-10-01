@@ -5,45 +5,55 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour {
 
-	//--------------------------------------------------------------
-	//Singleton method
 	public static Inventory instance;
 
-	void Awake(){
-		if(instance == null){
+	public List<Item> inventoryItems = new List<Item> ();
+
+	public int space = 12;
+
+	[Header("Inventory UI")]
+	public Transform itemsList;
+	InventorySlot[] slots;
+
+	void Awake() {
+		if(instance == null) {
 			instance = this;
 			// This is already handled in the GameManager.cs
 			// Canvas which contains the Inventory is a child of the GameManager, 
 			// so DontDestroyOnLoad doesn't need to be called in this script.
 			//GameObject.DontDestroyOnLoad(this.gameObject);
 
-		} else if(instance != this){
+		} else if(instance != this) {
 			Debug.Log("More than one insance of Inventory found!");
-			
 		}
-	}
-	//--------------------------------------------------------------
 
-	public delegate void OnItemChanged();
-	public OnItemChanged onItemChangedCallback;
-
-	//public GameObject inventoryGameObject;
-	public int space = 12;
-	public List<Item> inventoryItems = new List<Item> ();
-	
-	void Start(){
 		inventoryItems = Data.instance.inventoryData;
-		//inventoryGameObject.SetActive(false);
 	}
-	
-	public void Add(Item item){
+
+	void Start() {
+		slots = itemsList.GetComponentsInChildren<InventorySlot>();
+
+		UpdateUI();
+	}
+
+	public void Add(Item item) {
+		Debug.Log(item.name);
+
 		inventoryItems.Add(item);
 		
-		if(onItemChangedCallback != null)
-			onItemChangedCallback.Invoke();
+		UpdateUI();
+	}
 
-		if(onItemChangedCallback == null)
-			Debug.Log("onItemChangedCallback = null");
+	public void UpdateUI() {
+		Debug.Log("UPDATING UI");
+
+		for(int i = 0; i < slots.Length; i++){
+			
+			if(i < inventoryItems.Count){
+				slots[i].AddItem(inventoryItems[i]);
+			}
+
+		}
 	}
 
 }

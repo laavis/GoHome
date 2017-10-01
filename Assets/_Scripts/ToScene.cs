@@ -11,7 +11,7 @@ public class ToScene : MonoBehaviour {
 	public Direction direction;
 	public GameObject Player;
 	public string exitPoint;
-	private MoveToClickPoint thePlayer;
+	private PlayerController thePlayer;
 	public GameObject guiObject;
 	//public float pX;
 	//public float pY;
@@ -20,7 +20,7 @@ public class ToScene : MonoBehaviour {
 	//private bool insideTrigger = false;
 	// Use this for initialization
 	void Start () {
-		thePlayer = FindObjectOfType<MoveToClickPoint> ();
+		thePlayer = FindObjectOfType<PlayerController> ();
 		guiObject = (direction == Direction.forwards) ? GameManager.instance.loadNextSceneText : GameManager.instance.loadPreviousSceneText;
 		guiObject.SetActive (false);
 		/*if (PlayerPrefs.GetInt ("Saved") == 1) {
@@ -46,7 +46,6 @@ public class ToScene : MonoBehaviour {
 			//Debug.Log("Load next scene");
 			//Data.instance.SaveData();
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-
 		}
 	}
 
