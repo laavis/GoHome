@@ -23,13 +23,13 @@ public class Inventory : MonoBehaviour {
 	public delegate void OnItemChanged();
 	public OnItemChanged onItemChangedCallback;
 
-	public GameObject inventoryGameObject;
+	//public GameObject inventoryGameObject;
 	public int space = 12;
 	public List<Item> inventoryItems = new List<Item> ();
 	
 	void Start(){
 		inventoryItems = Data.instance.inventoryData;
-		inventoryGameObject.SetActive(false);
+		//inventoryGameObject.SetActive(false);
 	}
 	
 	public void Add(Item item){

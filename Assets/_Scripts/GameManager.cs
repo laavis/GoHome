@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance;
 	public static bool isPaused = false;
 
-	//public GameObject inventory;
+	public GameObject inventory;
 	public GameObject textBox;
 
 	public bool isInventoryOpen = false;
@@ -19,21 +19,23 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initializa'tion
 	void Start () {
-		//inventory.SetActive(isInventoryOpen);
+		inventory.SetActive(isInventoryOpen);
 		textBox.SetActive(isTextBoxOpen);
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		isPaused = (isInventoryOpen || isTextBoxOpen) || false;
-		
+
+		if(isInventoryOpen == true){
+			Debug.Log("Inventory is now open");
+		}	
 	}
 
-	/*public void ToggleInventory() {
+	public void ToggleInventory() {
 		isInventoryOpen = !isInventoryOpen;
 		inventory.SetActive(isInventoryOpen);
-	}*/
+	}
 
 	public void ToggleTextBox(){
 		isTextBoxOpen = !isTextBoxOpen;
