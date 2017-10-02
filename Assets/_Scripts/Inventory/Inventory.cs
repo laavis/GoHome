@@ -25,6 +25,7 @@ public class Inventory : MonoBehaviour {
 
 		} else if(instance != this) {
 			Debug.Log("More than one insance of Inventory found!");
+			Destroy(gameObject);
 		}
 
 		inventoryItems = Data.instance.inventoryData;

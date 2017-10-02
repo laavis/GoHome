@@ -11,16 +11,22 @@ public class ToScene : MonoBehaviour {
 	public Direction direction;
 	public GameObject Player;
 	public string exitPoint;
-	private PlayerController thePlayer;
+	private PlayerController player;
 	public GameObject guiObject;
+
+
 	//public float pX;
 	//public float pY;
 	//public GameObject guiObjectBack;
 	//public string LoadLevel;
 	//private bool insideTrigger = false;
 	// Use this for initialization
+
+
+
 	void Start () {
-		thePlayer = FindObjectOfType<PlayerController> ();
+		player = FindObjectOfType<PlayerController> ();
+		
 		guiObject = (direction == Direction.forwards) ? GameManager.instance.loadNextSceneText : GameManager.instance.loadPreviousSceneText;
 		guiObject.SetActive (false);
 		/*if (PlayerPrefs.GetInt ("Saved") == 1) {
@@ -35,19 +41,22 @@ public class ToScene : MonoBehaviour {
 		//Vector2 pos = transform.position;
 		//guiObjectBack.SetActive (false);
 	}
-
 	void Update(){
-		if(Input.GetMouseButtonDown(0) && guiObject.activeInHierarchy == true && transform.position.x > 5 /*insideTrigger*/){
+		if(Input.GetMouseButtonDown(0) && guiObject.activeInHierarchy == true && (direction == Direction.forwards)){
 			//Debug.Log("Load next scene");
 			//Data.instance.SaveData();
+			Debug.Log(direction);
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+			player.SetStartingPointRight();
 		}
-		if(Input.GetMouseButtonDown(0) && guiObject.activeInHierarchy == true && transform.position.x < 5 /*insideTrigger*/){
+		if(Input.GetMouseButtonDown(0) && guiObject.activeInHierarchy == true && (direction == Direction.backwards)){
 			//Debug.Log("Load next scene");
 			//Data.instance.SaveData();
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+			player.SetStartingPointLeft();
 		}
 	}
+
 
 	void OnTriggerEnter2D (Collider2D other){
 		if (other.gameObject.tag == "Player") {

@@ -2,25 +2,58 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
-	Animator anim;
+
+	private Animator anim;
 	private SpriteRenderer playerSpriteRend;
 
-	public Transform player;
-	private static bool playerExists;
 	private float speed = 10f;
 	private Vector2 target;
-	public bool isMoving = false;
 
+	private Vector2 startPosRight;
+	private Vector2 startPosLeft;
+
+	private static bool playerExists;
+	public bool isMoving = false;
+	public bool levelWasLoaded = true;
+
+	public Transform player;
 	public LayerMask itemLayer;
 
+	/*void OnLevelWasLoaded(){
+		levelWasLoaded = true;
+		// Reset the player's position to coordinates given in startPos
+		player.transform.position = startPosRight;
+		// When loading new level, 
+		if(levelWasLoaded == true){
+			target = player.transform.position;
+			Debug.Log("Player moved");
+			
+		}
+		
+	}*/
+	public void SetStartingPointRight(){
+		// Reset the player's position to coordinates given in startPos
+		player.transform.position = startPosRight;
+		target = player.transform.position;
+	}
+	public void SetStartingPointLeft(){
+		// Reset the player's position to coordinates given in startPos
+		player.transform.position = startPosLeft;
+		target = player.transform.position;
+	}
 
 	void Start(){
+		startPosRight = new Vector2 (-6.0f, -0.8f);
+		startPosLeft = new Vector2 (6.0f, -0.8f);
+		
 		target = transform.position;
 		anim = GetComponent<Animator>();
 		playerSpriteRend = GetComponent<SpriteRenderer>();
 
+		// If the player exists, don't destroy the gameObject when the scene changes
 		if (!playerExists) {
 			playerExists = true;
 			DontDestroyOnLoad (transform.gameObject);
@@ -30,7 +63,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update(){
-		//If target position the left side of the player, flip the player so it will be facing towards left
+		// If target position the left side of the player, flip the player so it will be facing towards left
 		if (!GameManager.isPaused && Mathf.Abs(target.x - player.position.x) > 0.05f) {
 			if(target.x < player.position.x){
 				playerSpriteRend.flipX = true;	
@@ -39,9 +72,11 @@ public class PlayerController : MonoBehaviour {
 				playerSpriteRend.flipX = false;	
 			} 
 		}
-
+		// Detect collision with item's collider
 		Collider2D coll = Physics2D.OverlapCircle(player.transform.position, 1f, itemLayer);
 		Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		// If the player clicks the item or presses it (android) and the item is within range, 
+		// pick up the item by calling CollectItem from ItemPickup.cs
 		if ((Input.GetMouseButtonDown(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) 
 			&& coll != null && Vector2.Distance(mouse, player.transform.position) < 1f) {
 			coll.GetComponent<ItemPickup>().CollectItem();
@@ -68,13 +103,15 @@ public class PlayerController : MonoBehaviour {
 
 	void Move(){
 			if(Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)) {
-			
+			// Character is moving
 			isMoving = true;
 		
 			#if UNITY_EDITOR
+			// Get the destination target by clicking somewhere in screen
 			target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
 			#elif (UNITY_ANDROID || UNITY_IPHONE || UNITY_WP8)
+			// Does the same as line above but on android
 			target = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
 			#endif
 
