@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour {
 	private Animator anim;
 	private SpriteRenderer playerSpriteRend;
 
-	private float speed = 10f;
+	private float speed = 30f;
 	private Vector2 target;
 
 	private Vector2 startPosRight;
@@ -46,8 +46,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Start(){
-		startPosRight = new Vector2 (-6.0f, -0.8f);
-		startPosLeft = new Vector2 (6.0f, -0.8f);
+		startPosRight = new Vector2 (-19.0f, -4.0f);
+		startPosLeft = new Vector2 (18.0f, -4.0f);
 		
 		target = transform.position;
 		anim = GetComponent<Animator>();
@@ -73,12 +73,13 @@ public class PlayerController : MonoBehaviour {
 			} 
 		}
 		// Detect collision with item's collider
-		Collider2D coll = Physics2D.OverlapCircle(player.transform.position, 1f, itemLayer);
+		Collider2D coll = Physics2D.OverlapCircle(player.transform.position, 2f, itemLayer);
 		Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
 		// If the player clicks the item or presses it (android) and the item is within range, 
 		// pick up the item by calling CollectItem from ItemPickup.cs
 		if ((Input.GetMouseButtonDown(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) 
-			&& coll != null && Vector2.Distance(mouse, player.transform.position) < 1f) {
+			&& coll != null && Vector2.Distance(mouse, player.transform.position) < 7f) {
 			coll.GetComponent<ItemPickup>().CollectItem();
 		}
 	}
@@ -123,6 +124,11 @@ public class PlayerController : MonoBehaviour {
 			}
 			//Move the player to the target position
 			transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
+	}
+
+	void OnDrawGizmos() {
+		Gizmos.color = Color.blue;
+		Gizmos.DrawWireSphere(transform.position, 2f);
 	}
 }
 
