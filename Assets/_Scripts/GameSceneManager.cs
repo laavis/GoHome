@@ -47,13 +47,13 @@ public class GameSceneManager : MonoBehaviour {
 			//Data.instance.SaveData();
 			Debug.Log(direction);
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-			player.SetStartingPointRight();
+			player.SetStartingPointLeft();
 		}
 		if(Input.GetMouseButtonDown(0) && guiObject.activeInHierarchy == true && (direction == Direction.backwards)){
 			//Debug.Log("Load next scene");
 			//Data.instance.SaveData();
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-			player.SetStartingPointLeft();
+			player.SetStartingPointRight();
 		}
 	}
 

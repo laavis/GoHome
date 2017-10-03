@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
+	public static PlayerController instance;
 	private Animator anim;
 	private SpriteRenderer playerSpriteRend;
 
@@ -19,35 +20,12 @@ public class PlayerController : MonoBehaviour {
 	public bool isMoving = false;
 	public bool levelWasLoaded = true;
 
-	public Transform player;
+	public Transform playerTransform;
 	public LayerMask itemLayer;
 
-	/*void OnLevelWasLoaded(){
-		levelWasLoaded = true;
-		// Reset the player's position to coordinates given in startPos
-		player.transform.position = startPosRight;
-		// When loading new level, 
-		if(levelWasLoaded == true){
-			target = player.transform.position;
-			Debug.Log("Player moved");
-			
-		}
-		
-	}*/
-	public void SetStartingPointRight(){
-		// Reset the player's position to coordinates given in startPos
-		player.transform.position = startPosRight;
-		target = player.transform.position;
-	}
-	public void SetStartingPointLeft(){
-		// Reset the player's position to coordinates given in startPos
-		player.transform.position = startPosLeft;
-		target = player.transform.position;
-	}
-
 	void Start(){
-		startPosRight = new Vector2 (-19.0f, -4.0f);
-		startPosLeft = new Vector2 (18.0f, -4.0f);
+		startPosRight = new Vector2 (18.0f, -4.0f);
+		startPosLeft = new Vector2 (-18.0f, -4.0f);
 		
 		target = transform.position;
 		anim = GetComponent<Animator>();
@@ -57,15 +35,13 @@ public class PlayerController : MonoBehaviour {
 		if (!playerExists) {
 			playerExists = true;
 			DontDestroyOnLoad (transform.gameObject);
-		} else {
-			Destroy (gameObject);
 		}
 	}
 
 	void Update(){
 		// If target position the left side of the player, flip the player so it will be facing towards left
-		if (!GameManager.isPaused && Mathf.Abs(target.x - player.position.x) > 0.05f) {
-			if(target.x < player.position.x){
+		if (!GameManager.isPaused && Mathf.Abs(target.x - playerTransform.position.x) > 0.05f) {
+			if(target.x < playerTransform.position.x){
 				playerSpriteRend.flipX = true;	
 			
 			} else {
@@ -73,13 +49,13 @@ public class PlayerController : MonoBehaviour {
 			} 
 		}
 		// Detect collision with item's collider
-		Collider2D coll = Physics2D.OverlapCircle(player.transform.position, 2f, itemLayer);
+		Collider2D coll = Physics2D.OverlapCircle(playerTransform.transform.position, 2f, itemLayer);
 		Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
 		// If the player clicks the item or presses it (android) and the item is within range, 
 		// pick up the item by calling CollectItem from ItemPickup.cs
 		if ((Input.GetMouseButtonDown(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) 
-			&& coll != null && Vector2.Distance(mouse, player.transform.position) < 7f) {
+			&& coll != null && Vector2.Distance(mouse, playerTransform.transform.position) < 7f) {
 			coll.GetComponent<ItemPickup>().CollectItem();
 		}
 	}
@@ -92,7 +68,7 @@ public class PlayerController : MonoBehaviour {
 		// In other words, stop moving 
 		}else if(isMoving == true && GameManager.isPaused){
 			isMoving = false;
-			target = player.transform.position;
+			target = playerTransform.transform.position;
 		}  
 		//Play walk animation until the player is reached the target position
 		if(isMoving == true && !GameManager.isPaused){
@@ -119,7 +95,7 @@ public class PlayerController : MonoBehaviour {
 			target.y = transform.position.y;
 			
 			//If the player has reached the target position, stop moving. 
-			}else if(target.x == player.position.x){
+			}else if(target.x == playerTransform.position.x){
 				isMoving = false;
 			}
 			//Move the player to the target position
@@ -129,6 +105,16 @@ public class PlayerController : MonoBehaviour {
 	void OnDrawGizmos() {
 		Gizmos.color = Color.blue;
 		Gizmos.DrawWireSphere(transform.position, 2f);
+	}
+	public void SetStartingPointRight(){
+		// Reset the player's position to coordinates given in startPos
+		playerTransform.transform.position = startPosRight;
+		target = playerTransform.transform.position;
+	}
+	public void SetStartingPointLeft(){
+		// Reset the player's position to coordinates given in startPos
+		playerTransform.transform.position = startPosLeft;
+		target = playerTransform.transform.position;
 	}
 }
 
