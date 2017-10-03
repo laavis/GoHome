@@ -7,7 +7,7 @@ public enum Direction {
 	forwards, backwards
 }
 
-public class ToScene : MonoBehaviour {
+public class GameSceneManager : MonoBehaviour {
 	public Direction direction;
 	public GameObject Player;
 	public string exitPoint;
