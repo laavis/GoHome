@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour {
+	
 	public static GameManager instance;
+	
 	public static bool isPaused = false;
 	public GameObject inventory;
 	public GameObject textBox;
@@ -14,6 +16,11 @@ public class GameManager : MonoBehaviour {
 
 	public GameObject loadNextSceneText;
 	public GameObject loadPreviousSceneText;
+
+	// Inventory data
+	[Header("Items in inventory")]
+	public List<Item> inventoryData;
+
 
 	void Awake () {
 		// GameManager is Singleton (i.e. only one GameManager instance at any given time)
@@ -40,7 +47,7 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//If either Inventory or TextBox is active, game should be paused
-		//This method is called in the MoveToClickPoint.cs
+		//This variable is checked in PlayerController.cs
 		isPaused = (isInventoryOpen || isTextBoxOpen) || false;	
 	}
 
@@ -52,6 +59,14 @@ public class GameManager : MonoBehaviour {
 	public void ToggleTextBox(){
 		isTextBoxOpen = !isTextBoxOpen;
 		textBox.SetActive(isTextBoxOpen);
+	}
+
+	public void SaveData(){
+		inventoryData = Inventory.instance.inventoryItems;
+	}
+
+	public void LoadData(){
+		Inventory.instance.inventoryItems = inventoryData;
 	}
 
 }

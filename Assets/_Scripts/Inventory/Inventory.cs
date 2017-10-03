@@ -9,11 +9,10 @@ public class Inventory : MonoBehaviour {
 
 	public List<Item> inventoryItems = new List<Item> ();
 
-	public int space = 12;
-
 	[Header("Inventory UI")]
 	public Transform itemsList;
 	InventorySlot[] slots;
+	
 
 	void Awake() {
 		if(instance == null) {
@@ -24,17 +23,18 @@ public class Inventory : MonoBehaviour {
 			//GameObject.DontDestroyOnLoad(this.gameObject);
 
 		} else if(instance != this) {
-			Debug.Log("More than one insance of Inventory found!");
+			//Debug.Log("More than one insance of Inventory found!");
 			Destroy(gameObject);
 		}
 
-		inventoryItems = Data.instance.inventoryData;
+		inventoryItems = GameManager.instance.inventoryData;
 	}
 
 	void Start() {
-		slots = itemsList.GetComponentsInChildren<InventorySlot>();
 
+		slots = itemsList.GetComponentsInChildren<InventorySlot>();
 		UpdateUI();
+
 	}
 
 	public void Add(Item item) {

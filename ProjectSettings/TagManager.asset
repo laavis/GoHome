@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerSpawnController
   - Collectable
+  - Description
   layers:
   - Default
   - TransparentFX

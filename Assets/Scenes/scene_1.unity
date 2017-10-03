@@ -334,48 +334,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1 &46117989
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 46117990}
-  - component: {fileID: 46117991}
-  m_Layer: 0
-  m_Name: StartPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &46117990
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 46117989}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.44, y: -1.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &46117991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 46117989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72a467424abdc1349b5bae266038c140, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startDirection: {x: 0, y: 0}
-  pointName: 
 --- !u!1 &122066818
 GameObject:
   m_ObjectHideFlags: 0
@@ -3262,7 +3220,12 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114204524612274238, guid: f1dcd924494c3054eb20a76cb2a134af,
+    - target: {fileID: 114828923595318866, guid: f1dcd924494c3054eb20a76cb2a134af,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 376490116}
+    - target: {fileID: 114443174716552388, guid: f1dcd924494c3054eb20a76cb2a134af,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3277,16 +3240,20 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 142.24219
       objectReference: {fileID: 0}
-    - target: {fileID: 114443174716552388, guid: f1dcd924494c3054eb20a76cb2a134af,
+    - target: {fileID: 114204524612274238, guid: f1dcd924494c3054eb20a76cb2a134af,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1693137243}
-    - target: {fileID: 114828923595318866, guid: f1dcd924494c3054eb20a76cb2a134af,
+    - target: {fileID: 114084714022855824, guid: f1dcd924494c3054eb20a76cb2a134af,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 376490116}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130135541349772, guid: f1dcd924494c3054eb20a76cb2a134af, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1dcd924494c3054eb20a76cb2a134af, type: 2}
   m_IsPrefabParent: 0
@@ -4047,7 +4014,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1693137244}
   - component: {fileID: 1693137243}
-  - component: {fileID: 1693137242}
   - component: {fileID: 1693137245}
   m_Layer: 0
   m_Name: GameManager
@@ -4056,18 +4022,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1693137242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1693137241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18f9db7feff430a44bd0951b4449c4cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventoryData: []
 --- !u!114 &1693137243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4085,6 +4039,7 @@ MonoBehaviour:
   isTextBoxOpen: 0
   loadNextSceneText: {fileID: 295906444}
   loadPreviousSceneText: {fileID: 1513658125}
+  inventoryData: []
 --- !u!4 &1693137244
 Transform:
   m_ObjectHideFlags: 0
@@ -4111,7 +4066,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryItems: []
-  space: 12
   itemsList: {fileID: 1124175247}
 --- !u!1 &1713732391
 GameObject:
@@ -4422,7 +4376,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1814609875
 MonoBehaviour:
