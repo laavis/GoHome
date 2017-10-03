@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject inventory;
 	public GameObject textBox;
 
+	public GameObject player;
+
 	public GameObject playerPrefab;
 
 	public bool isInventoryOpen = false;
@@ -37,7 +39,7 @@ public class GameManager : MonoBehaviour {
 		GameObject.DontDestroyOnLoad(this.gameObject);
 
 		//Instantiate player to the scene
-		Instantiate(playerPrefab);
+		player = Instantiate(playerPrefab);
 	}
 	
 	// Use this for initializa'tion

@@ -447,6 +447,7 @@ GameObject:
   - component: {fileID: 224302571364321128}
   - component: {fileID: 222194313782306820}
   - component: {fileID: 114403891594576560}
+  - component: {fileID: 114721592833999408}
   m_Layer: 5
   m_Name: TextBox
   m_TagString: Untagged
@@ -2203,6 +2204,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114721592833999408
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1527368727779768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d5ee94904a9829478854376810f8bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 145, z: 0}
 --- !u!114 &114726366404878104
 MonoBehaviour:
   m_ObjectHideFlags: 1
