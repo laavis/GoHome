@@ -7,6 +7,7 @@ public class DialogueManager : MonoBehaviour {
 
 	public Text nameText;
 	public Text dialogueText;
+	
 	//Stores sentences to Queue
 	private Queue<string> sentences;
 
