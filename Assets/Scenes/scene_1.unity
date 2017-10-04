@@ -6929,7 +6929,7 @@ MonoBehaviour:
   inventory: {fileID: 1171299310}
   textBox: {fileID: 1187843242}
   player: {fileID: 0}
-  playerPrefab: {fileID: 1924724483291046, guid: 74aa5528e9d8a7d45a0c2214c6f8ae07,
+  playerPrefab: {fileID: 1260869667573964, guid: 6620d32129a89432c8ccf516150e94f7,
     type: 2}
   isInventoryOpen: 0
   isTextBoxOpen: 0
