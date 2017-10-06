@@ -1,11 +1,12 @@
 fileFormatVersion: 2
-guid: 6b1144adb7ff09744991f85c3378e0dd
-timeCreated: 1507176250
+guid: 87964c8be811ba741aa0fd1900549c71
+timeCreated: 1507278845
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Button2_0
-    21300002: Button2_1
+    21300000: Button_0
+    21300002: Button_1
+    21300004: Button_2
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -33,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -48,7 +49,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -59,30 +60,30 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
+    maxTextureSize: 256
+    resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
   - buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
+    maxTextureSize: 256
+    resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
   - buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: 47
-    textureCompression: 1
+    maxTextureSize: 256
+    resizeAlgorithm: 1
+    textureFormat: 4
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -92,67 +93,21 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Button2_0
+      name: Button_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 55
-        width: 60
-        height: 20
+        x: 0
+        y: 0
+        width: 32
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 3, z: 3, w: 3}
       outline: []
       physicsShape: []
       tessellationDetail: 0
-    - serializedVersion: 2
-      name: Button2_1
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 19
-        width: 60
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    outline:
-    - - {x: -25, y: -7}
-      - {x: -32, y: -14}
-      - {x: -32, y: -24}
-      - {x: -25, y: -31}
-      - {x: 30, y: -31}
-      - {x: 32, y: -26}
-      - {x: 32, y: -9}
-      - {x: 28, y: -7}
-    - - {x: 27, y: 29}
-      - {x: -25, y: 29}
-      - {x: -32, y: 22}
-      - {x: -32, y: 12}
-      - {x: -25, y: 5}
-      - {x: 26, y: 5}
-      - {x: 32, y: 9}
-      - {x: 32, y: 24}
-    physicsShape:
-    - - {x: -25, y: -7}
-      - {x: -32, y: -14}
-      - {x: -32, y: -24}
-      - {x: -25, y: -31}
-      - {x: 30, y: -31}
-      - {x: 32, y: -26}
-      - {x: 32, y: -9}
-      - {x: 28, y: -7}
-    - - {x: 27, y: 29}
-      - {x: -25, y: 29}
-      - {x: -32, y: 22}
-      - {x: -32, y: 12}
-      - {x: -25, y: 5}
-      - {x: 26, y: 5}
-      - {x: 32, y: 9}
-      - {x: 32, y: 24}
+    outline: []
+    physicsShape: []
   spritePackingTag: 
   userData: 
   assetBundleName: 
