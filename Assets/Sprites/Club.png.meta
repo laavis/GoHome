@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9c63c6a5695cf6a499c1874cfa93b8bd
-timeCreated: 1507464082
+timeCreated: 1507480186
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,12 @@ TextureImporter:
     21300002: Bar_counter
     21300004: Bar_stool
     21300006: Bottle
+    21300008: Bar BG
+    21300010: Counter
+    21300012: Stool
+    21300014: Cement wall
+    21300016: Pipe
+    21300018: Wooden box
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -94,21 +100,21 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bar_BG
+      name: Bar BG
       rect:
         serializedVersion: 2
         x: 0
-        y: 66
+        y: 67
         width: 384
-        height: 164
+        height: 163
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Bar_counter
+      name: Counter
       rect:
         serializedVersion: 2
         x: 0
@@ -116,13 +122,13 @@ TextureImporter:
         width: 189
         height: 35
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Bar_stool
+      name: Stool
       rect:
         serializedVersion: 2
         x: 197
@@ -130,7 +136,7 @@ TextureImporter:
         width: 19
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -144,7 +150,49 @@ TextureImporter:
         width: 7
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cement wall
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 0
+        width: 109
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Pipe
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 0
+        width: 56
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Wooden box
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 3
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
