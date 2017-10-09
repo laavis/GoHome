@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour {
 			itemColl.GetComponent<ItemPickup>().CollectItem();
 		}
 
-		Collider2D clickable = Physics2D.OverlapCircle(playerTransform.transform.position, 4f, clickableLayers);
+		Collider2D clickable = Physics2D.OverlapCircle(playerTransform.transform.position, 2f, clickableLayers);
 		if(hasClicked && clickable != null && clickable.GetComponent<Collider2D>().bounds.Contains(mouse)) {
 			Clickable thing = clickable.GetComponent<Clickable>();
 			if (thing != null) thing.OnClick();

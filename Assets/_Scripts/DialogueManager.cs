@@ -7,6 +7,7 @@ public class DialogueManager : MonoBehaviour {
 
 	public Text nameText;
 	public Text dialogueText;
+
 	
 	//Stores sentences to Queue
 	private Queue<string> sentences;
@@ -16,8 +17,8 @@ public class DialogueManager : MonoBehaviour {
 		sentences = new Queue<string>();
 	}
 	public void StartDialogue(Dialogue dialogue){
-
-		Debug.Log("Starting conversation with" + dialogue.name);
+		
+		Debug.Log("Starting conversation with " + dialogue.name);
 
 		nameText.text = dialogue.name;
 
@@ -46,7 +47,7 @@ public class DialogueManager : MonoBehaviour {
 			yield return null;
 		}
 	}
-	void EndDialogue(){
+	public void EndDialogue(){
 		Debug.Log("End of the text");
 		GameManager.instance.ToggleTextBox();
 	}

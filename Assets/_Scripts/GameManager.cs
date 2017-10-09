@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour {
 	public bool isInventoryOpen = false;
 	public bool isTextBoxOpen = false;
 
+	public bool hasTalkedToBartender = false;
+
 	public GameObject loadNextSceneText;
 	public GameObject loadPreviousSceneText;
 

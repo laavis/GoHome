@@ -82,8 +82,8 @@ MonoBehaviour:
   dialogue:
     name: KEVIN
     sentences:
-    - no no no sir nonononoo
-    - Maybe I should look for clues
+    - Why would I go to the city? I think home is in other direction.. Maybe..
+    - Maybe I should look for clues.
 --- !u!114 &114702627543458848
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public enum Direction {
-	forwards, backwards
+	forwards, backwards, busStop, city
 }
 
 public class GameSceneManager : Clickable {
@@ -27,7 +27,16 @@ public class GameSceneManager : Clickable {
 			if (direction == Direction.forwards) {
 				GameManager.instance.player.GetComponent<PlayerController>().SetStartingPointLeft();
 				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+			} else if( direction == Direction.busStop) {
+				GameManager.instance.player.GetComponent<PlayerController>().SetStartingPointLeft();
+				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+
+			} else if( direction == Direction.city) {
+				GameManager.instance.player.GetComponent<PlayerController>().SetStartingPointRight();
+				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
 			} else {
+
 				GameManager.instance.player.GetComponent<PlayerController>().SetStartingPointRight();
 				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
 			}
