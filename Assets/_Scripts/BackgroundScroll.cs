@@ -1,15 +1,15 @@
 ﻿ using UnityEngine;
- using System.Collections;
  
  public class BackgroundScroll : MonoBehaviour {
 	 
-     public float scrollSpeed = 0.5F;
-     public Renderer rend;
-     void Start() {
-         rend = GetComponent<Renderer>();
-     }
-     void Update() {
-         float offset = Time.time * scrollSpeed;
-         rend.material.SetTextureOffset("MainMenu_bg", new Vector2(offset, 0));
-     }
+    public float speed = 0.5f;
+
+    Transform bg;
+    void Start() {
+        bg = gameObject.transform;
+    }
+    void Update() {
+        float scrollSpeed = bg.position.y + speed * Time.deltaTime;
+        bg.position = new Vector3(bg.position.x, scrollSpeed, bg.position.z);
+    }
  }
