@@ -9,8 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6eea8faece28fc40bfa9ad107a7c8e3, type: 3}
-  m_Name: Wallet
+  m_Name: Glasses
   m_EditorClassIdentifier: 
-  name: Wallet
-  icon: {fileID: 21300000, guid: 4fd0f049b89c06b4f80b0e88124d1ce8, type: 3}
-  description: Fantastic you're not fucked anymore since you got your wallet back!
+  name: Glasses
+  icon: {fileID: 21300000, guid: d84b33c7a72a99843bcb7040b31dc15e, type: 3}
+  description: Wont bring back clear memories from last night but atleast you can
+    now see clearly.
