@@ -7,6 +7,7 @@ TagManager:
   - PlayerSpawnController
   - Collectable
   - Description
+  - Bus stop
   layers:
   - Default
   - TransparentFX

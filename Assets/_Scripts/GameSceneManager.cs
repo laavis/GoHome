@@ -12,6 +12,18 @@ public class GameSceneManager : Clickable {
 	public Item[] requiredItems;
 	public DialogueTrigger notReadyDialog;
 
+	[Header("For last scene only!")]
+	public GameObject bus;
+	GameObject player;
+	Animator anim;
+
+	void Start() {
+		if(bus != null){
+			anim = bus.GetComponent<Animator> ();
+			player = GameObject.FindGameObjectWithTag("Player");
+		}
+	}
+
 	public override void OnClick() {
 		Debug.Log(gameObject.name);
 
@@ -25,6 +37,14 @@ public class GameSceneManager : Clickable {
 
 		if (isReady) {
 			if (direction == Direction.forwards) {
+
+				if(gameObject.tag == "Bus stop"){
+					anim.Play("Bus");
+					Destroy(player, 2.2f);
+					return;
+				}
+
+
 				GameManager.instance.player.GetComponent<PlayerController>().SetStartingPointLeft();
 				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
