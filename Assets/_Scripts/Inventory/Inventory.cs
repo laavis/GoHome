@@ -46,8 +46,6 @@ public class Inventory : MonoBehaviour {
 	}
 
 	public void UpdateUI() {
-		Debug.Log("UPDATING UI");
-
 		for(int i = 0; i < slots.Length; i++){
 			
 			if(i < inventoryItems.Count){
@@ -57,4 +55,14 @@ public class Inventory : MonoBehaviour {
 		}
 	}
 
+
+	public void ResetUI() {
+		if (slots == null) return;
+
+		for(int i = 0; i < slots.Length; i++){
+			slots[i].Reset();
+		}
+
+		GameManager.instance.inventory.GetComponentInChildren<UpdateDescription>().ResetDescriptionText();
+	}
 }

@@ -48,7 +48,7 @@ public class DialogueManager : MonoBehaviour {
 		}
 	}
 	public void EndDialogue(){
-		Debug.Log("End of the text");
+		
 		GameManager.instance.ToggleTextBox();
 	}
 }

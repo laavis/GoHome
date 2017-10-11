@@ -126,6 +126,11 @@ public class PlayerController : MonoBehaviour {
 		playerTransform.transform.position = startPosLeft;
 		target = playerTransform.transform.position;
 	}
+
+	public void Remove(float delay = 0) {
+		playerExists = false;
+		Destroy(gameObject, delay);
+	}
 }
 
     

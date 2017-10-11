@@ -25,4 +25,11 @@ public class InventorySlot : MonoBehaviour {
 		icon.enabled = true;
 	}
 
+	public void Reset() {
+		img.enabled = true;
+		btn.enabled = true;
+
+		icon.sprite = null;
+		icon.enabled = false;
+	}
 }

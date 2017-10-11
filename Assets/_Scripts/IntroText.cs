@@ -28,8 +28,9 @@ public class IntroText : MonoBehaviour {
 
 	public void StartGame ()
 	{
-		if(isFinished == true){
-			SceneManager.LoadScene("scene_1");
-		}
+		// Load GameManager
+		if (GameManager.instance != null) GameManager.instance.Load();
+
+		SceneManager.LoadScene("scene_1");
 	}
 }
