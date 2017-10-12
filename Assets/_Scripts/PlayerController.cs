@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
 	private Animator anim;
 	private SpriteRenderer playerSpriteRend;
 
-	private float speed = 30f;
+	private float speed = 20f;
 	private Vector2 target;
 
 	private Vector2 startPosRight;
