@@ -8,18 +8,19 @@ public class DialogueManager : MonoBehaviour {
 	public Text nameText;
 	public Text dialogueText;
 
-	
-	//Stores sentences to Queue
+	///
+	///Stores sentences to Queue
+	///
 	private Queue<string> sentences;
 
 	void Start () {
 		//Initialize Queue
 		sentences = new Queue<string>();
 	}
+	///
+	/// Start the dialog
+	///
 	public void StartDialogue(Dialogue dialogue){
-		
-		Debug.Log("Starting conversation with " + dialogue.name);
-
 		nameText.text = dialogue.name;
 
 		sentences.Clear();
@@ -29,6 +30,9 @@ public class DialogueManager : MonoBehaviour {
 		}
 		DisplayNextSentence();
 	}
+	///
+	/// Display the next sentence until the end of the sentences, then close dialog
+	///
 	public void DisplayNextSentence(){
 		//end text if all the sentences have been displayed
 		if(sentences.Count == 0){
@@ -40,6 +44,10 @@ public class DialogueManager : MonoBehaviour {
 		StopAllCoroutines();
 		StartCoroutine(TypeSentence(sentence));
 	}
+
+	///
+	/// Makes text come out like it's typed
+	///
 	IEnumerator TypeSentence(string sentence){
 		dialogueText.text = "";
 		foreach(char letter in sentence.ToCharArray()){

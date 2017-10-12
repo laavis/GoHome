@@ -6,7 +6,9 @@ public class BusAnimation : Clickable {
 	public GameObject bus;
 	Animator anim;
 
-	// Use this for initialization
+	///
+	/// Execute the bus animation, destroy the player and show the end screen on click
+	///
 	public override void OnClick () {
 		anim = bus.GetComponent<Animator> ();
 		anim.Play("Bus");

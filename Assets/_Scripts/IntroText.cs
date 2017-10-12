@@ -12,11 +12,16 @@ public class IntroText : MonoBehaviour {
 	public string sentencesIntro;
 
 	public bool isFinished = false;
+	///
+	/// Call DisplayIntro so the text appears on the screen
+	///
     void Start () {
 
         StartCoroutine(DisplayIntro());
     }
-
+	///
+	/// Show text as if it was typed
+	///
 	private IEnumerator DisplayIntro(){
 		foreach(char letter in sentencesIntro.ToCharArray()){
 			introText.text += letter;
@@ -25,7 +30,9 @@ public class IntroText : MonoBehaviour {
 		isFinished = true;
 	}
 
-
+	///
+	/// Load the first scene (the park)
+	///
 	public void StartGame ()
 	{
 		// Load GameManager
@@ -34,3 +41,4 @@ public class IntroText : MonoBehaviour {
 		SceneManager.LoadScene("scene_1");
 	}
 }
+
